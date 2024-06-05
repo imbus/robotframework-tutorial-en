@@ -8,7 +8,7 @@ Tests with Time
     Log To Console    Hello, Folks!
     Log To Console    It is ${time}.
 
-Test a Text Contains
+Test with a loop
     Log To Console    one,two,three
     ${list}=    Split String    one,two,three    ,
     Log Many    @{list}

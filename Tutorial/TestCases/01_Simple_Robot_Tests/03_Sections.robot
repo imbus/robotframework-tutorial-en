@@ -6,24 +6,28 @@ This is a Comment.
 
 *** Settings ***
 Library     String
+Suite Setup    Log To Console    This happens Before All
+Suite Teardown    Log To Console    This happens After All
 
 
 *** Variables ***
-${Redner}       René Rohner
+${Speaker}       René Rohner
 
 
 *** Test Cases ***
 Testfall 1
     [Tags]    marker1    marker2
     [Timeout]    10 s
-    [Setup]    Log To Console    Das ist der Anfang
-    Ich bin ein Keyword    Hallo
-    Log    Bitte das hier auch in die Console    console=Ja
-    Log To Console    Das ist mitten drin
-    [Teardown]    Log To Console    Das ist das Ende
+    [Setup]    Log To Console    This is at the beginning of a test
+    I am a Keyword   I am a Value
+    Log To Console    I am a Value Too
+    [Teardown]    Log To Console    This is the end
 
 
 *** Keywords ***
-Ich bin ein Keyword
-    [Arguments]    ${Nachricht}
-    Log    ${Nachricht}
+I am a Keyword
+    [Documentation]    This is the keyword Documentation
+    ...
+    ...    It may have multiple lines...
+    [Arguments]    ${message}
+    Log    ${message}

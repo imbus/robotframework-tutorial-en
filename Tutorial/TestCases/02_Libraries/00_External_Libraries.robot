@@ -4,11 +4,10 @@ Library     Browser    timeout=20 sec
 
 *** Test Cases ***
 Check RF 3.2 not supporting IF statement
-    New Browser    browser=webkit    headless=False
+    New Browser    browser=chromium    headless=False
     New Context    colorScheme=dark
     New Page    https://robotframework.org
     Set Assertion Formatters    formatters={'Get Text': ["strip"]}
-    Click    "Getting Started"
     Click    id=project-drop-down
     Click    id=project-dropdown-content >> "Advanced Example"
     Wait For Condition    Text    id=project-drop-down    ==    Advanced Example
