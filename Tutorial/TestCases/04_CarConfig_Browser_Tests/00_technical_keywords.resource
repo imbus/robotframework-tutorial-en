@@ -68,16 +68,11 @@ Open CarConfig As User
 
 Open Web Page
     [Arguments]    ${url}=${BASE-URL}    ${browser}=chromium    ${headless}=False
-    IF    $browser=="chromium"
-        ${args}=    Set Variable    ["--start-maximized"]
-    ELSE
-        ${args}=    Set Variable    ${None}
-    END
-    New Browser    ${browser}    headless=${headless}    args=${args}
+    New Browser    ${browser}    headless=${headless}   # args=${args}
     New Context
     ...    colorScheme=dark
-    ...    viewport=${None}
     ...    tracing=${OUTPUTDIR}/trace.zip
+    ...    recordVideo={"dir": "videos"}
     New Page    ${url}
 
 Go To Next Page
