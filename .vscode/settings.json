@@ -22,7 +22,7 @@
     "robotcode.debug.groupOutput": false,
     "robotcode.robocop.enabled": false,
     "redhat.telemetry.enabled": false,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Default Dark+",
     "gitpod.openInStable.neverPrompt": true,
     "git.autofetch": true,
     "github.gitProtocol": "ssh",
@@ -31,12 +31,12 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "files.exclude": {
-        "**/.*": false,
-        "**/.vscode": false,
-        "LICENSE": false,
-        "requirements.txt": false,
-        "README.md": false,
-        "**/crypto_keys": false
+        "**/.*": true,
+        "**/.vscode": true,
+        "LICENSE": true,
+        "requirements.txt": true,
+        "README.md": true,
+        "**/crypto_keys": true
     },
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {
