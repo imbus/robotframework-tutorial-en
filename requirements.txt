@@ -6,3 +6,4 @@ robotframework-debug
 robotframework-datadriver
 robotframework-stacktrace
 robotframework-crypto
+robotframework-testobject
