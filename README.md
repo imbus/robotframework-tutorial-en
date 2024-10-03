@@ -1,9 +1,12 @@
-# robocon-de-tutorial
+# Robot Framework Tutorial (en)
 GitPod Repository for Robot Framework Tutorial in English
 
 
 This Tutorial contains Multiple small examples how to use Robot Framework.
 It can either be used locally on your own machine or in a cloud dev environment.
+
+If you have any questions about Robot Framework or if the installation does not work for you, please join our Slack and ask in **#newbies** channel.
+[Click For Slack Invitation](https://join.slack.com/t/robotframework/shared_invite/zt-2ruah2fhe-fR4DFkfLKy6mjpW2mBxGUQ)
 
 
 ## Preparation
