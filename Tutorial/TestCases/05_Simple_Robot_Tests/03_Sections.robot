@@ -1,9 +1,3 @@
-*** Comments ***
-Dear Participants,
-
-This is a Comment.
-
-
 *** Settings ***
 Library     String
 Suite Setup    Log To Console    This happens Before All
@@ -31,3 +25,9 @@ I am a Keyword
     ...    It may have multiple lines...
     [Arguments]    ${message}
     Log    ${message}
+
+
+*** Comments ***
+Dear Participants,
+
+This is a Comment.

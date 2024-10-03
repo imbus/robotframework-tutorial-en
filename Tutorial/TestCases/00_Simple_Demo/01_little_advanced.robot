@@ -6,54 +6,59 @@ Documentation       A test suite for valid login.
 Resource            keywords.resource
 
 Suite Setup         Connect to Server
-Suite Teardown      Disconnect
+Test Setup          Login Admin
 Test Teardown       Logout User
+Suite Teardown      Disconnect
 
 
 *** Test Cases ***
 Access All Users With Admin Rights
     [Documentation]    Tests if all users can be accessed with Admin User.
-    Login Admin
     Print All Users
 
 Create User With Admin Rights
     [Documentation]    Tests if a new users can be created with Admin User.
-    Login Admin
     Create New User
     ...    name=Peter Parker
     ...    login=spider
     ...    password=123spiderman321
-    ...    right=user
+    ...    right=user\
     Verify User Details    spider    Peter Parker
     Logout User
     Login User    spider    123spiderman321
 
 Update User with Admin Rights
     [Documentation]    Changes Password of an existing user.
-    Login Admin
     Change Users Password    spider    friendly_spider_2022
     Logout User
     Login User    spider    friendly_spider_2022
 
 Update Own Password With User Rights
     [Documentation]    Changes Password of an existing user.
-    Login User    hulk    Hulk...SMASH!
-    Change Own Password    Don't make Hulk angry!    Hulk...SMASH!
+    [Setup]    Login User    hulk    Hulk...SMASH!
+    Change Own Password   new_password=Don't make Hulk angry!    old_password=Hulk...SMASH!
     Logout User
     Login User    hulk    Don't make Hulk angry!
 
 Access Own Details With User Rights
     [Documentation]    Tests if a user can access own details
-    Login User    ironman    1234567890
-    Get User Details By Name    ironman
-    Get User Details By Name
-    Get User Details
-    Verify User Details    ironman    Tony Stark
-
-Access Other Users Details With User Rights
-    [Documentation]    Tests does fail, due to insufficiant rights...
     [Setup]    Login User    ironman    1234567890
-    Get User Details By Name    ironman
-    Get User Details By Name    hulk
-    Log    This keyword not be executed
-    [Teardown]    Log    This is executed.
+    ${user_id}=    Get User Id    ironman
+    &{user_details}=    Get User Details    ${user_id}
+    &{my_details}=    Get User Details
+    Should Be Equal    ${user_details}     ${my_details}
+    Should Be Equal    ${user_details}[login]    ironman    #normal access
+    Should Be Equal    ${user_details}[name]    Tony Stark
+    Should Be Equal    ${user_details.right}    user        #advanced dot access
+    Should Be Equal    ${user_details.active}    ${True}
+
+Access Other Details With Admin rights
+    [Documentation]    Tests if a user can access own details
+    [Setup]    Login User    admin    @RBTFRMWRK@
+    ${user_id}=    Get User Id    ironman
+    &{user_details}=    Get User Details    ${user_id}
+    Should Be Equal    ${user_details}[login]    ironman    #normal access
+    Should Be Equal    ${user_details}[name]    Tony Stark
+    Should Be Equal    ${user_details.right}    user        #advanced dot access
+    Should Be Equal    ${user_details.active}    ${True}
+

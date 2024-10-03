@@ -5,14 +5,19 @@ Documentation       A test suite for valid login.
 
 Resource            keywords.resource
 
-Default Tags        positive
-
 
 *** Test Cases ***
 Login User with Password
     Connect to Server
     Login User    ironman    1234567890
     Verify Valid Login    Tony Stark
+    [Teardown]    Close Server Connection
+
+Login Admin with Password
+    [Documentation]    This one will fail...
+    Connect to Server
+    Login User    admin    1234567890
+    Verify Valid Login    Administrator
     [Teardown]    Close Server Connection
 
 Denied Login with Wrong Password

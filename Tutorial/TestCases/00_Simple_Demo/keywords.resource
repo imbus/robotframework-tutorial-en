@@ -32,12 +32,6 @@ Verify Valid Login
     ${name}=    Get User Name
     Should Be Equal    ${name}    ${exp_full_name}
 
-Login Admin
-    [Documentation]    'Login Admin' is a Keyword.
-    ...    It calls 'Login User' from 'CustomLibrary.py'
-    Login User    ${ADMIN}[login]    ${ADMIN}[pwd]
-    Verify Valid Login    Administrator
-
 Verify User Details
     [Documentation]    Keyword that fetches user details based on a login
     ...    and verifies them against expected arguments.
@@ -59,9 +53,17 @@ Get User Details By Name
     [Arguments]    ${login}=${None}
     IF    $login
         ${user_id}=    Get User Id    ${login}
+        ${user_details}=    Get User Details    ${user_id}
     ELSE
-        ${user_id}=    Set Variable    ${NONE}
+        ${user_details}=    Get User Details
     END
-    ${user_details}=    Get User Details    ${user_id}
-    Log    ${user_details}
     RETURN    ${user_details}
+
+Verify Unauthorised Access
+    Run Keyword And Expect Error    PermissionError*    Get Server Version
+
+Login Admin
+    [Documentation]    'Login Admin' is a Keyword.
+    ...    It calls 'Login User' from 'CustomLibrary.py'
+    Login User    admin    @RBTFRMWRK@
+    Verify Valid Login    Administrator
