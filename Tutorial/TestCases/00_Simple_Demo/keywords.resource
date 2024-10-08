@@ -19,12 +19,6 @@ Connect to Server
 Close Server Connection
     Disconnect
 
-Login User
-    [Arguments]    ${login}    ${password}
-    Set Login Name    ${login}
-    Set Password    ${password}
-    Execute Login
-
 Verify Valid Login
     [Arguments]    ${exp_full_name}
     ${version}=    Get Server Version

@@ -1,5 +1,5 @@
 *** Settings ***
-Library     Browser    timeout=20 sec
+Library     Browser    timeout=20 sec    enable_presenter_mode=True
 
 
 *** Test Cases ***

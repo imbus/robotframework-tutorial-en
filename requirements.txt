@@ -7,3 +7,4 @@ robotframework-datadriver
 robotframework-stacktrace
 robotframework-crypto
 robotframework-testobject
+robotframework-requests

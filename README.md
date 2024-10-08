@@ -14,7 +14,7 @@ If you have any questions about Robot Framework or if the installation does not 
 To decide which way of participation you should choose, here are some hints:
 
 - Cloud Environment (Gitpod.io): If you just want to see how Robot Framework works and probably not work with it after that workshop. If you are not allowed to or not that familiar how to install locally. If local installation did fail.
-- Local Installation: If you want to explore Robot Framework further and maybe dive deeper into it after the workshop. 
+- Local Installation: If you want to explore Robot Framework further and maybe dive deeper into it after the workshop.
 
 ## Gitpod.io Cloud Environment
 
@@ -23,7 +23,7 @@ Everything runs in your browser and no local installation needed.
 
 You can use gitpod.io actively for free for 50h a month and stop the workspace at any time, like a hibernate.
 
-### Requirements 
+### Requirements
 
 - Github.com account
 - Phone Number for registration verification. (To activate your account, you need to indentify with a phone number to not misuse )
@@ -70,8 +70,8 @@ If this does not work, press F1 and execute `>Python: Select Interpreter` and se
 
 ## Testing your Setup
 
-To test your installation open the 'Testing' explorer (View > Testing) and run the whole suite. 
-The result should be: 29 tests, 26 passed, 3 failed
+To test your installation open the 'Testing' explorer (View > Testing) and run the `Tutorial` suite.
+The result should be: 16 tests, 12 passed, 4 failed
 
 You are now ready to participate the Workshop.
 

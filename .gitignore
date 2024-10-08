@@ -128,7 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 results/
-Participants/
+Solutions/
 browser/
 playwright-log.txt
 trace.zip

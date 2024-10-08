@@ -23,6 +23,10 @@ Login Admin with Password
 Denied Login with Wrong Password
     [Tags]    negative
     Connect to Server
-    Run Keyword And Expect Error    *Invalid Password    Login User    ironman    123
+    TRY
+        Login User    ironman    123
+    EXCEPT    *Invalid Password    type=GLOB
+        Log    Correct Denied Login
+    END
     Verify Unauthorised Access
     [Teardown]    Close Server Connection
